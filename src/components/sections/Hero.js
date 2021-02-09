@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import ButtonGroup from '../elements/ButtonGroup';
+import { GoogleLogin } from 'react-google-login';
 import Button from '../elements/Button';
 import Image from '../elements/Image';
-
+import Signin from '../elements/SignIn';
+import Modal from '../elements/Modal';
+import config from '../../config';
+import Typography from '@material-ui/core/Typography';
 const propTypes = {
 	...SectionProps.types,
 };
@@ -23,6 +27,10 @@ const Hero = ({
 	invertColor,
 	...props
 }) => {
+	const [ismodal1open, setismodal1open] = useState(false);
+	const [ismodal2open, setismodal2open] = useState(false);
+	const [message, setmessage] = useState('');
+
 	const outerClasses = classNames(
 		'hero section center-content',
 		topOuterDivider && 'has-top-divider',
@@ -37,6 +45,14 @@ const Hero = ({
 		topDivider && 'has-top-divider',
 		bottomDivider && 'has-bottom-divider'
 	);
+
+	const HandleSuccess = async (response) => {
+		console.log(response.tokenId);
+	};
+
+	const HandleFailure = (response) => {
+		setmessage('Google Authentication Failed');
+	};
 
 	return (
 		<section {...props} className={outerClasses}>
@@ -64,17 +80,15 @@ const Hero = ({
 								data-reveal-delay='600'>
 								<ButtonGroup>
 									<Button
-										tag='a'
 										color='primary'
 										wideMobile
-										href='https://cruip.com/'>
+										onClick={() => setismodal1open(true)}>
 										Student/Instructer Login
 									</Button>
 									<Button
-										tag='a'
 										color='dark'
 										wideMobile
-										href='https://github.com/cruip/open-react-template/'>
+										onClick={() => setismodal2open(true)}>
 										Institute Login
 									</Button>
 								</ButtonGroup>
@@ -94,6 +108,35 @@ const Hero = ({
 						/>
 					</div>
 				</div>
+				<Modal
+					handleClose={() => setismodal1open(false)}
+					show={ismodal1open}>
+					<h3>Student/Instructer Login</h3>
+					<div className=''>
+						<div className='error-msg'>{message}</div>
+						<GoogleLogin
+							clientId={config.GOOGLE_CLIENT_ID}
+							render={(renderProps) => (
+								<button
+									className='button'
+									onClick={renderProps.onClick}
+									disabled={renderProps.disabled}>
+									LOGIN WITH GOOGLE
+								</button>
+							)}
+							onSuccess={HandleSuccess}
+							onFailure={HandleFailure}
+						/>
+					</div>
+				</Modal>
+				<Modal
+					handleClose={() => setismodal2open(false)}
+					show={ismodal2open}>
+					<Typography variant='h3' component='h6'>
+						Institute Login
+					</Typography>
+					<Signin />
+				</Modal>
 			</div>
 		</section>
 	);
