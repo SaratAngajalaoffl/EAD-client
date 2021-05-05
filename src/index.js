@@ -7,12 +7,15 @@ import App from './App';
 
 //import './App.css';
 import './assets/scss/style.scss';
+import { AuthProvider } from './utils/Auth';
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
 	<Router history={history}>
-		<App />
+		<AuthProvider>
+			<App />
+		</AuthProvider>
 	</Router>,
 	document.getElementById('root')
 );

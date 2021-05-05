@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import ButtonGroup from '../elements/ButtonGroup';
@@ -9,6 +9,9 @@ import Signin from '../elements/SignIn';
 import Modal from '../elements/Modal';
 import config from '../../config';
 import Typography from '@material-ui/core/Typography';
+import AuthContext from '../../utils/Auth';
+import { useHistory } from 'react-router';
+
 const propTypes = {
 	...SectionProps.types,
 };
@@ -30,6 +33,8 @@ const Hero = ({
 	const [ismodal1open, setismodal1open] = useState(false);
 	const [ismodal2open, setismodal2open] = useState(false);
 	const [message, setmessage] = useState('');
+	const history = useHistory();
+	const { auth, glogin } = useContext(AuthContext);
 
 	const outerClasses = classNames(
 		'hero section center-content',
@@ -47,7 +52,11 @@ const Hero = ({
 	);
 
 	const HandleSuccess = async (response) => {
-		console.log(response.tokenId);
+		try {
+			await glogin(response.tokenId);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const HandleFailure = (response) => {
@@ -64,7 +73,7 @@ const Hero = ({
 							data-reveal-delay='200'>
 							A ONE STOP DESTINATION FOR HANDLING{' '}
 							<span className='text-color-primary'>
-								COURSE WORK
+								COURSE WORK {auth?.user?.name}
 							</span>
 						</h1>
 						<div className='container-xs'>
