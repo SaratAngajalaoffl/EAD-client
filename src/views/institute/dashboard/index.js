@@ -20,34 +20,109 @@ function InstituteDashboard() {
 	const [studentmodal, setstudentmodel] = useState(false);
 	const [modal1, setmodel1] = useState(false);
 	const [modal2, setmodel2] = useState(false);
+	const [name, setname] = useState('');
+	const [email, setemail] = useState('');
+
+	const loaddata = async () => {
+		let res = await axios.get('http://localhost:3001/institute/students', {
+			headers: {
+				Authorization: `Bearer ${auth.user.token}`,
+			},
+		});
+		setStudents(res.data);
+		res = await axios.get('http://localhost:3001/institute/teachers', {
+			headers: {
+				Authorization: `Bearer ${auth.user.token}`,
+			},
+		});
+		setTeachers(res.data);
+		res = await axios.get('http://localhost:3001/institute/courses', {
+			headers: {
+				Authorization: `Bearer ${auth.user.token}`,
+			},
+		});
+		setCourses(res.data);
+	};
 
 	useEffect(() => {
 		console.log('Token is', auth.user.token);
-		const loaddata = async () => {
-			let res = await axios.get(
-				'http://localhost:3001/institute/students',
+		loaddata();
+	}, [auth.user.token]);
+
+	const AddStudent = async () => {
+		try {
+			await axios.post(
+				'http://localhost:3001/institute/add-student',
+				{
+					email,
+					name,
+				},
 				{
 					headers: {
+						'Content-Type': 'application/json',
 						Authorization: `Bearer ${auth.user.token}`,
 					},
 				}
 			);
-			setStudents(res.data);
-			res = await axios.get('http://localhost:3001/institute/teachers', {
-				headers: {
-					Authorization: `Bearer ${auth.user.token}`,
+			setname('');
+			setemail('');
+			loaddata();
+			setstudentmodel();
+			setmodel1();
+			setmodel2();
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	const AddCourse = async () => {
+		try {
+			await axios.post(
+				'http://localhost:3001/institute/add-course',
+				{
+					name,
 				},
-			});
-			setTeachers(res.data);
-			res = await axios.get('http://localhost:3001/institute/courses', {
-				headers: {
-					Authorization: `Bearer ${auth.user.token}`,
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${auth.user.token}`,
+					},
+				}
+			);
+			setname('');
+			setemail('');
+			loaddata();
+			setstudentmodel();
+			setmodel1();
+			setmodel2();
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	const AddTeacher = async () => {
+		try {
+			await axios.post(
+				'http://localhost:3001/institute/add-teacher',
+				{
+					email,
+					name,
 				},
-			});
-			setCourses(res.data);
-		};
-		loaddata();
-	}, [auth.user.token]);
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${auth.user.token}`,
+					},
+				}
+			);
+			setname('');
+			setemail('');
+			loaddata();
+			setstudentmodel();
+			setmodel1();
+			setmodel2();
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	return (
 		<div>
@@ -65,18 +140,25 @@ function InstituteDashboard() {
 						id=''
 						fullWidth
 						label='Enter Student Name'
-						// value={}
-						// onChange={}
+						value={name}
+						onChange={(e) => {
+							setname(e.target.value);
+						}}
 					/>
 					<TextField
 						id=''
 						fullWidth
 						label='Enter Student Email'
-						// value={}
-						// onChange={}
+						value={email}
+						onChange={(e) => {
+							setemail(e.target.value);
+						}}
 					/>
 				</DialogContent>
 				<DialogActions>
+					<Button onClick={AddStudent} color='default'>
+						Add
+					</Button>
 					<Button
 						onClick={() => setstudentmodel(false)}
 						color='default'>
@@ -98,18 +180,25 @@ function InstituteDashboard() {
 						id=''
 						fullWidth
 						label='Enter Instructor Name'
-						// value={}
-						// onChange={}
+						value={name}
+						onChange={(e) => {
+							setname(e.target.value);
+						}}
 					/>
 					<TextField
 						id=''
 						fullWidth
 						label='Enter Instructor Email'
-						// value={}
-						// onChange={}
+						value={email}
+						onChange={(e) => {
+							setemail(e.target.value);
+						}}
 					/>
 				</DialogContent>
 				<DialogActions>
+					<Button onClick={AddTeacher} color='default'>
+						Add
+					</Button>
 					<Button onClick={() => setmodel1(false)} color='default'>
 						Cancel
 					</Button>
@@ -129,12 +218,14 @@ function InstituteDashboard() {
 						id=''
 						fullWidth
 						label='Enter Course Name'
-						// value={}
-						// onChange={}
+						value={name}
+						onChange={(e) => {
+							setname(e.target.value);
+						}}
 					/>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={() => setmodel2(false)} color='default'>
+					<Button onClick={AddCourse} color='default'>
 						Add
 					</Button>
 					<Button onClick={() => setmodel2(false)} color='default'>
