@@ -49,9 +49,9 @@ const FeaturesSplit = ({
 	);
 
 	const sectionHeader = {
-		title: 'Lorem, ipsum dolor sit amet consectetur adipisicing.',
+		title: '',
 		paragraph:
-			'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.',
+			' ',
 	};
 
 	return (
@@ -67,19 +67,14 @@ const FeaturesSplit = ({
 							<div
 								className='split-item-content center-content-mobile reveal-from-left'
 								data-reveal-container='.split-item'>
-								<div className='text-xxs text-color-primary fw-600 tt-u mb-8'>
-									Lorem, ipsum dolor.
+								<div className='text-xxs text-color-primary fw-600 tt-u mb-12'>
+								Accessible to Every Age Group
 								</div>
-								<h3 className='mt-0 mb-12'>
-									Lorem, ipsum dolor.
-								</h3>
 								<p className='m-0'>
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua
-									— Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip
-									ex ea commodo consequat.
+									We have a friendly and simple UI 
+									so that a user can access anything in 
+									our website with a minimal number of 
+									clicks which means a better accesability.
 								</p>
 							</div>
 							<div
@@ -89,7 +84,7 @@ const FeaturesSplit = ({
 								)}
 								data-reveal-container='.split-item'>
 								<Image
-									src={require('./../../assets/images/video-placeholder.jpg')}
+									src={require('./../../assets/images/national-cancer-institute-N_aihp118p8-unsplash.jpg')}
 									alt='Features split 01'
 									width={200}
 									height={200}
@@ -101,19 +96,15 @@ const FeaturesSplit = ({
 							<div
 								className='split-item-content center-content-mobile reveal-from-right'
 								data-reveal-container='.split-item'>
-								<div className='text-xxs text-color-primary fw-600 tt-u mb-8'>
-									Lorem, ipsum dolor.
+								<div className='text-xxs text-color-primary fw-600 tt-u mb-12'>
+									Detailed Report
 								</div>
-								<h3 className='mt-0 mb-12'>
-									Lorem, ipsum dolor.
-								</h3>
+								
 								<p className='m-0'>
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua
-									— Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip
-									ex ea commodo consequat.
+									We Also provide detailed analysis to Institutions and 
+									Teachers of the students performance in their 
+									respective courses. Also the teacher can know
+									 which students are enrolled in their course. 
 								</p>
 							</div>
 							<div
@@ -123,7 +114,7 @@ const FeaturesSplit = ({
 								)}
 								data-reveal-container='.split-item'>
 								<Image
-									src={require('./../../assets/images/video-placeholder.jpg')}
+									src={require('./../../assets/images/myriam-jessier-eveI7MOcSmw-unsplash.jpg')}
 									alt='Features split 02'
 									width={200}
 									height={200}
@@ -135,19 +126,15 @@ const FeaturesSplit = ({
 							<div
 								className='split-item-content center-content-mobile reveal-from-left'
 								data-reveal-container='.split-item'>
-								<div className='text-xxs text-color-primary fw-600 tt-u mb-8'>
-									Lorem, ipsum dolor.
+								<div className='text-xxs text-color-primary fw-600 tt-u mb-12'>
+									Online / Remote Assesment
 								</div>
-								<h3 className='mt-0 mb-12'>
-									Lorem, ipsum dolor.
-								</h3>
+								
 								<p className='m-0'>
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua
-									— Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip
-									ex ea commodo consequat.
+									With Our Application the users can register
+									 themselves as an Institution and can be used 
+									 in this pandemic for hosting their courses 
+									 and remotely assigning them to the teachers.
 								</p>
 							</div>
 							<div
@@ -157,7 +144,7 @@ const FeaturesSplit = ({
 								)}
 								data-reveal-container='.split-item'>
 								<Image
-									src={require('./../../assets/images/video-placeholder.jpg')}
+									src={require('./../../assets/images/museums-victoria-n1LIveUPls4-unsplash.jpg')}
 									alt='Features split 03'
 									width={200}
 									height={200}
