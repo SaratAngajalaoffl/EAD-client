@@ -43,9 +43,9 @@ const FeaturesTiles = ({
 	);
 
 	const sectionHeader = {
-		title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		title: 'What Our Application Does and how does it work ?',
 		paragraph:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptate aut reprehenderit odit nostrum repellendus laudantium qui, natus id impedit dicta assumenda earum architecto facilis amet, adipisci blanditiis, eaque quasi!',
+			'Our Applications is an online and course management for Students, Teachers and as well as Institutions.',
 	};
 
 	return (
@@ -70,11 +70,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Minimalistic UI</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										We have a simple and friendly UI for any age group for easy access.
 									</p>
 								</div>
 							</div>
@@ -95,11 +93,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Reports and Statistics</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										The Institutions or Teachers can analyse the statistics by the student's performance.
 									</p>
 								</div>
 							</div>
@@ -120,11 +116,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Institute Support</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										We have institute login where they can host courses and assign them to teachers.
 									</p>
 								</div>
 							</div>
@@ -143,11 +137,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Teacher Support</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										Teachers can know which students are enrolled in their courses and manage them accordingly for their use which has additional information like their email-id.
 									</p>
 								</div>
 							</div>
@@ -168,11 +160,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Security as a Feature</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										We have made Security as a feature which means our application is safe to use for our clients/Institutions
 									</p>
 								</div>
 							</div>
@@ -193,11 +183,9 @@ const FeaturesTiles = ({
 									</div>
 								</div>
 								<div className='features-tiles-item-content'>
-									<h4 className='mt-0 mb-8'>Lorem, ipsum.</h4>
+									<h4 className='mt-0 mb-8'>Feedback/Support</h4>
 									<p className='m-0 text-sm'>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Tempora deserunt
-										nulla, earum nostrum quidem placeat.
+										We get Regular feedbacks from our clients and users so that we can improve our application in a better mannner.
 									</p>
 								</div>
 							</div>
